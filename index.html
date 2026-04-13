@@ -396,7 +396,7 @@
           </div>
           <div class="cb-content">
             <h4>Document Source</h4>
-            <p>AI risk guide, Orange Book, Appendices I–IV, LLM Bias Compliance Tool documentation. Stored in Blob Storage / S3.</p>
+            <p>AI risk guide, Orange Book, Appendices I–IV, LLM Bias Compliance Tool documentation. Stored in Amazon S3.</p>
           </div>
         </div>
 
@@ -407,7 +407,7 @@
           </div>
           <div class="cb-content">
             <h4>Page Index Store</h4>
-            <p>Documents are chunked by page and section. Each chunk is stored in DynamoDB / Azure Cosmos DB with page number, section title, and source document metadata.</p>
+            <p>Documents are chunked by page and section. Each chunk is stored in Amazon DynamoDB with page number, section title, and source document metadata.</p>
           </div>
         </div>
 
@@ -429,7 +429,7 @@
           </div>
           <div class="cb-content">
             <h4>LLM Interaction Layer</h4>
-            <p>Retrieved page context is injected into the LLM prompt. The LLM (Claude Haiku via AWS Bedrock / Azure OpenAI) generates a grounded, page-cited response. LLM is Q&amp;A only — no scoring.</p>
+            <p>Retrieved page context is injected into the LLM prompt. The LLM (Claude Haiku via AWS Bedrock) generates a grounded, page-cited response. LLM is Q&amp;A only — no scoring.</p>
           </div>
         </div>
 
@@ -502,7 +502,7 @@
 
         <div class="tech-card">
           <div class="tech-card-icon">📦</div>
-          <div class="tech-card-name">Azure Cosmos DB</div>
+          <div class="tech-card-name">Amazon DynamoDB</div>
           <div class="tech-card-role">Shared Storage (NoSQL)</div>
         </div>
 
@@ -514,13 +514,13 @@
 
         <div class="tech-card">
           <div class="tech-card-icon">📊</div>
-          <div class="tech-card-name">Azure AI Search</div>
+          <div class="tech-card-name">Amazon OpenSearch</div>
           <div class="tech-card-role">Optional Semantic Layer</div>
         </div>
 
         <div class="tech-card">
           <div class="tech-card-icon">🛡️</div>
-          <div class="tech-card-name">Azure APIM / API GW</div>
+          <div class="tech-card-name">AWS API Gateway</div>
           <div class="tech-card-role">API Gateway &amp; Auth</div>
         </div>
 
@@ -570,7 +570,7 @@
           </div>
           <div class="slide-caption">
             <span class="slide-caption-title">Solution Workflow</span>
-            <span class="slide-caption-desc">User Flow (PageIndex Chatbot) &amp; Developer Flow (AI Assessment Tool) — Shared Azure Cosmos DB Storage</span>
+            <span class="slide-caption-desc">User Flow (PageIndex Chatbot) &amp; Developer Flow (AI Assessment Tool) — Shared Amazon DynamoDB Storage</span>
           </div>
         </div>
 
@@ -950,7 +950,7 @@
           </div>
           <div class="arch-caption">
             <strong>Deployment Model — User Flow &amp; Developer Flow</strong>
-            <p>Presents the parallel deployment flows: the User Flow (PageIndex Chatbot — query through Chat Interface → Page Index Retriever → DynamoDB → Claude Haiku → Grounded Reply) and the Developer Flow (AI Assessment Tool — Dev Interface → DynamoDB → Bedrock → LLM Analyser → Scoring Engine → Risk Report), both sharing Azure Cosmos DB as the central data store.</p>
+            <p>Presents the parallel deployment flows: the User Flow (PageIndex Chatbot — query through Chat Interface → Page Index Retriever → DynamoDB → Claude Haiku → Grounded Reply) and the Developer Flow (AI Assessment Tool — Dev Interface → DynamoDB → Bedrock → LLM Analyser → Scoring Engine → Risk Report), both sharing Amazon DynamoDB as the central data store.</p>
           </div>
         </div>
 
@@ -1014,7 +1014,7 @@
           <ul class="stack-items">
             <li>AWS Bedrock — managed LLM service host</li>
             <li>Claude Haiku — conversational Q&amp;A model</li>
-            <li>Azure OpenAI — alternative LLM service (configurable)</li>
+            <li>Amazon Bedrock — managed LLM service (multi-model)</li>
             <li>LLM Analyser — answer cross-check and bias analysis</li>
           </ul>
         </div>
@@ -1025,8 +1025,8 @@
             <h4>Hosting &amp; Deployment</h4>
           </div>
           <ul class="stack-items">
-            <li>Azure / AWS cloud infrastructure</li>
-            <li>Azure APIM / AWS API Gateway — API management and auth</li>
+            <li>AWS cloud infrastructure (EC2 / ECS / Lambda)</li>
+            <li>AWS API Gateway — API management and auth</li>
             <li>GitHub Pages — static site hosting (this site)</li>
             <li>OAuth 2.0 + MFA — identity and access management</li>
           </ul>
@@ -1038,10 +1038,10 @@
             <h4>Document &amp; Indexing</h4>
           </div>
           <ul class="stack-items">
-            <li>DynamoDB — page index store and session logs</li>
-            <li>Azure Cosmos DB — shared NoSQL storage</li>
-            <li>Azure AI Search — optional semantic retrieval layer</li>
-            <li>Blob Storage / S3 — source document archive</li>
+            <li>Amazon DynamoDB — page index store and session logs</li>
+            <li>Amazon S3 — source document archive</li>
+            <li>Amazon OpenSearch Service — optional semantic retrieval layer</li>
+            <li>AWS Secrets Manager — credentials and config management</li>
           </ul>
         </div>
 
@@ -1109,7 +1109,7 @@
           <div class="download-card-icon">🔄</div>
           <div class="download-card-content">
             <h4>Deployment Model &amp; Workflow</h4>
-            <p>User Flow (PageIndex Chatbot) and Developer Flow (AI Assessment Tool) — shared storage architecture, AWS / Azure deployment model</p>
+            <p>User Flow (PageIndex Chatbot) and Developer Flow (AI Assessment Tool) — shared storage architecture, AWS deployment model</p>
             <div class="download-meta">
               <span>PPTX &nbsp;·&nbsp; 21 KB</span>
             </div>
