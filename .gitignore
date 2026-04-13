@@ -1,0 +1,9 @@
+# Claude Code internal files
+.claude/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Intermediate PDF exports (only the PNGs are needed)
+assets/images/*.pdf

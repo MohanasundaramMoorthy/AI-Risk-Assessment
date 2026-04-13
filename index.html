@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Risk Assessment Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Inter for body, DM Sans for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       MOBILE HEADER (hamburger + logo — visible only on small screens)
+  ───────────────────────────────────────────────────────────────── -->
+  <header class="mobile-header">
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="mobile-logo">AI Risk Assessment</span>
+  </header>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       SIDEBAR NAVIGATION
+  ───────────────────────────────────────────────────────────────── -->
+  <nav class="sidebar" id="sidebar">
+    <!-- Sidebar brand -->
+    <div class="sidebar-brand">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="brand-name">AI Risk Assessment</div>
+        <div class="brand-sub">Enterprise Platform</div>
+      </div>
+    </div>
+
+    <div class="sidebar-scroll">
+      <ul class="nav-list">
+
+        <!-- 1. Home -->
+        <li class="nav-item">
+          <a href="#home" class="nav-link active" data-section="home">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+          </a>
+        </li>
+
+        <!-- 2. Tools Overview -->
+        <li class="nav-item">
+          <a href="#tools-overview" class="nav-link" data-section="tools-overview">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Tools Overview
+          </a>
+        </li>
+
+        <!-- 3. Page Index Chatbot (collapsible group) -->
+        <li class="nav-group">
+          <button class="nav-group-toggle" data-group="chatbot">
+            <span class="nav-group-left">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Page Index Chatbot
+            </span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="nav-sub" id="group-chatbot">
+            <li><a href="#chatbot-what" class="nav-link nav-sub-link" data-section="chatbot-what">What is Page Index?</a></li>
+            <li><a href="#chatbot-components" class="nav-link nav-sub-link" data-section="chatbot-components">Components</a></li>
+            <li><a href="#chatbot-tech" class="nav-link nav-sub-link" data-section="chatbot-tech">Technologies</a></li>
+            <li><a href="#chatbot-pipeline" class="nav-link nav-sub-link" data-section="chatbot-pipeline">Pipeline &amp; Workflow</a></li>
+            <li><a href="#chatbot-metrics" class="nav-link nav-sub-link" data-section="chatbot-metrics">Metrics</a></li>
+          </ul>
+        </li>
+
+        <!-- 4. Bias Detection Tool -->
+        <li class="nav-item">
+          <a href="#bias-tool" class="nav-link" data-section="bias-tool">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Bias Detection Tool
+          </a>
+        </li>
+
+        <!-- 5. Architecture & Deployment -->
+        <li class="nav-item">
+          <a href="#architecture" class="nav-link" data-section="architecture">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Architecture &amp; Deployment
+          </a>
+        </li>
+
+        <!-- 6. Platform Stack -->
+        <li class="nav-item">
+          <a href="#stack" class="nav-link" data-section="stack">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            Platform Stack
+          </a>
+        </li>
+
+        <!-- 7. Downloads -->
+        <li class="nav-item">
+          <a href="#downloads" class="nav-link" data-section="downloads">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Downloads
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Sidebar footer -->
+    <div class="sidebar-footer">
+      <span class="version-badge">v2.0 &nbsp;·&nbsp; UK Gov Aligned</span>
+    </div>
+  </nav>
+
+  <!-- Sidebar overlay for mobile -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       MAIN CONTENT
+  ───────────────────────────────────────────────────────────────── -->
+  <main class="main-content" id="main-content">
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 1 — HOME / INTRODUCTION
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="home" class="section hero-section">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          UK Gov Orange Book Aligned &nbsp;·&nbsp; NIST AI RMF &nbsp;·&nbsp; Production Grade
+        </div>
+
+        <h1 class="hero-title">
+          AI Risk Assessment<br/>
+          <span class="hero-title-accent">Enterprise Platform</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          A structured, governance-aligned platform for assessing, documenting, and managing
+          AI-related risk across your organisation. Built on deterministic scoring, page-aware
+          retrieval, and auditable decision logic.
+        </p>
+
+        <div class="hero-description">
+          <p>
+            As AI systems move from experimentation into production, organisations face a growing
+            obligation to demonstrate that risk has been identified, scored, and mitigated before
+            deployment. This platform provides two complementary tools to help governance, assurance,
+            and development teams meet that obligation — consistently and at scale.
+          </p>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#architecture" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            View Architecture
+          </a>
+          <a href="#tools-overview" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Explore Tools
+          </a>
+          <a href="#downloads" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Decks
+          </a>
+        </div>
+
+        <!-- Platform stat pills -->
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <span class="stat-value">9</span>
+            <span class="stat-label">Risk Categories</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-value">5×5</span>
+            <span class="stat-label">Scoring Matrix</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-value">3</span>
+            <span class="stat-label">Decision Gates</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-value">2</span>
+            <span class="stat-label">Core Tools</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative background element -->
+      <div class="hero-bg-graphic" aria-hidden="true"></div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 2 — TOOLS OVERVIEW
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="tools-overview" class="section">
+      <div class="section-header">
+        <div class="section-label">Platform Tools</div>
+        <h2 class="section-title">Two Tools, One Platform</h2>
+        <p class="section-desc">
+          The AI Risk Assessment platform delivers two purpose-built tools that work together
+          to support end-to-end AI governance from framework enquiry through to scored risk output.
+        </p>
+      </div>
+
+      <div class="tool-cards-grid">
+
+        <!-- Tool Card 1: Page Index Chatbot -->
+        <div class="tool-card tool-card--chatbot">
+          <div class="tool-card-header">
+            <div class="tool-icon tool-icon--blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="tool-card-badge">Tool 1</div>
+          </div>
+          <h3 class="tool-card-title">Page Index Chatbot</h3>
+          <p class="tool-card-tagline">Intelligent, page-aware enquiry into the AI risk framework</p>
+          <p class="tool-card-desc">
+            The Page Index Chatbot enables teams to interrogate the AI risk assessment
+            guide and related frameworks through natural language. Unlike generic RAG systems,
+            it retrieves context at the page and section level — preserving document
+            traceability and supporting accurate, citation-grounded responses.
+          </p>
+          <div class="tool-card-uses">
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Ask questions about the AI risk guide
+            </div>
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Retrieve policy sections with page citations
+            </div>
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Navigate appendices and risk categories
+            </div>
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Support structured Q&amp;A for risk assessment sessions
+            </div>
+          </div>
+          <div class="tool-card-workflow">
+            <span class="wf-step">User Query</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="wf-step">Page Index Retrieval</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="wf-step">LLM Response</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="wf-step">Grounded Answer + Citation</span>
+          </div>
+          <a href="#chatbot-what" class="tool-card-link">
+            Explore tool
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+        <!-- Tool Card 2: Bias Detection Tool -->
+        <div class="tool-card tool-card--bias">
+          <div class="tool-card-header">
+            <div class="tool-icon tool-icon--amber">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="tool-card-badge">Tool 2</div>
+          </div>
+          <h3 class="tool-card-title">Bias Detection Tool</h3>
+          <p class="tool-card-tagline">Systematic bias assessment for AI solutions and outputs</p>
+          <p class="tool-card-desc">
+            The Bias Detection Tool provides developers and assurance teams with a structured
+            method for identifying and scoring potential bias in AI systems. Using a deterministic
+            rules engine and cross-referenced reference answers, it produces a scored, auditable
+            bias assessment with risk tier classification.
+          </p>
+          <div class="tool-card-uses">
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Assess AI solutions for bias risk factors
+            </div>
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Cross-reference developer answers against reference data
+            </div>
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Generate risk-tiered bias reports
+            </div>
+            <div class="use-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Support compliance and governance sign-off
+            </div>
+          </div>
+          <div class="tool-card-workflow">
+            <span class="wf-step">Start Session</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="wf-step">Q&amp;A Capture</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="wf-step">LLM Analysis</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="wf-step">Risk Report</span>
+          </div>
+          <a href="#bias-tool" class="tool-card-link">
+            Explore tool
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 3 — PAGE INDEX CHATBOT
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="chatbot-what" class="section">
+      <div class="section-header">
+        <div class="section-label">Tool 1 &nbsp;·&nbsp; Page Index Chatbot</div>
+        <h2 class="section-title">What is Page Index?</h2>
+        <p class="section-desc">
+          Understanding how page-indexed retrieval differs from traditional vector-only search —
+          and why it matters for structured policy and governance documents.
+        </p>
+      </div>
+
+      <div class="content-grid content-grid--2col">
+        <div class="content-card">
+          <div class="content-card-icon content-card-icon--blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h4>Page-Level Document Chunking</h4>
+          <p>
+            Rather than splitting documents into arbitrary semantic chunks, the Page Index
+            approach preserves the original page and section boundaries of the source document.
+            Each retrieval unit maps directly to a specific page or section, enabling precise
+            citation and traceability back to the authoritative source.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <div class="content-card-icon content-card-icon--blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h4>Versus Traditional RAG</h4>
+          <p>
+            Standard vector-only RAG (Retrieval-Augmented Generation) retrieves the most
+            semantically similar text chunks, but often loses page context and document
+            structure. The Page Index preserves this structure, so responses remain anchored
+            to verifiable pages — critical for governance and compliance use cases.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <div class="content-card-icon content-card-icon--blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Structured AI Risk Documents</h4>
+          <p>
+            The AI risk assessment guide, Orange Book framework, and related appendices are
+            structured documents where location matters. A reference to "Appendix I, page 14"
+            carries institutional weight. Page-indexed retrieval preserves this meaning,
+            supporting auditable and defensible AI risk decisions.
+          </p>
+        </div>
+
+        <div class="content-card">
+          <div class="content-card-icon content-card-icon--blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h4>Guide Navigation &amp; Traceability</h4>
+          <p>
+            Users can ask about specific risk categories, sections, or treatments and receive
+            responses that cite the page source. This makes the chatbot a navigable,
+            trustworthy interface to a complex multi-document framework — not just a
+            generic question-answering layer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── 3.2 Components ─────────── -->
+    <section id="chatbot-components" class="section section--alt">
+      <div class="section-header">
+        <div class="section-label">Tool 1 &nbsp;·&nbsp; Page Index Chatbot</div>
+        <h2 class="section-title">System Components</h2>
+        <p class="section-desc">
+          The chatbot is composed of layered, enterprise-grade components spanning ingestion,
+          retrieval, reasoning, and output.
+        </p>
+      </div>
+
+      <div class="component-pipeline">
+        <div class="component-block component-block--1">
+          <div class="cb-number">01</div>
+          <div class="cb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+          </div>
+          <div class="cb-content">
+            <h4>Document Source</h4>
+            <p>AI risk guide, Orange Book, Appendices I–IV, LLM Bias Compliance Tool documentation. Stored in Blob Storage / S3.</p>
+          </div>
+        </div>
+
+        <div class="component-block component-block--2">
+          <div class="cb-number">02</div>
+          <div class="cb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+          </div>
+          <div class="cb-content">
+            <h4>Page Index Store</h4>
+            <p>Documents are chunked by page and section. Each chunk is stored in DynamoDB / Azure Cosmos DB with page number, section title, and source document metadata.</p>
+          </div>
+        </div>
+
+        <div class="component-block component-block--3">
+          <div class="cb-number">03</div>
+          <div class="cb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="cb-content">
+            <h4>Query Orchestration &amp; Retrieval</h4>
+            <p>Incoming user queries are mapped against the page index. Top matching pages are retrieved based on section relevance and keyword matching. Supports optional semantic retrieval layer.</p>
+          </div>
+        </div>
+
+        <div class="component-block component-block--4">
+          <div class="cb-number">04</div>
+          <div class="cb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="cb-content">
+            <h4>LLM Interaction Layer</h4>
+            <p>Retrieved page context is injected into the LLM prompt. The LLM (Claude Haiku via AWS Bedrock / Azure OpenAI) generates a grounded, page-cited response. LLM is Q&amp;A only — no scoring.</p>
+          </div>
+        </div>
+
+        <div class="component-block component-block--5">
+          <div class="cb-number">05</div>
+          <div class="cb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="cb-content">
+            <h4>Chat UI Layer</h4>
+            <p>React / Angular web interface. Displays conversation history, page citations, and source references. Accessible and responsive for desktop and mobile use.</p>
+          </div>
+        </div>
+
+        <div class="component-block component-block--6">
+          <div class="cb-number">06</div>
+          <div class="cb-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="cb-content">
+            <h4>Reference &amp; Scoring Output</h4>
+            <p>Each response includes page number, section title, and document source. The response is grounded and auditable — designed to support governance review and compliance sign-off.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── 3.3 Technologies ─────────── -->
+    <section id="chatbot-tech" class="section">
+      <div class="section-header">
+        <div class="section-label">Tool 1 &nbsp;·&nbsp; Page Index Chatbot</div>
+        <h2 class="section-title">Tools &amp; Technologies</h2>
+        <p class="section-desc">
+          The chatbot is built on a production-grade cloud-native stack, designed for
+          enterprise deployment, security, and auditability.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🐍</div>
+          <div class="tech-card-name">Python</div>
+          <div class="tech-card-role">Backend &amp; Orchestration</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">☁️</div>
+          <div class="tech-card-name">AWS Bedrock</div>
+          <div class="tech-card-role">LLM Service Host</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🤖</div>
+          <div class="tech-card-name">Claude Haiku</div>
+          <div class="tech-card-role">Language Model (Q&amp;A)</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🗄️</div>
+          <div class="tech-card-name">DynamoDB</div>
+          <div class="tech-card-role">Page Index Store</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🌐</div>
+          <div class="tech-card-name">HTML / CSS / JS</div>
+          <div class="tech-card-role">Frontend Interface</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">📦</div>
+          <div class="tech-card-name">Azure Cosmos DB</div>
+          <div class="tech-card-role">Shared Storage (NoSQL)</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🔍</div>
+          <div class="tech-card-name">Page-Based Retrieval</div>
+          <div class="tech-card-role">Section-Aware Lookup</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">📊</div>
+          <div class="tech-card-name">Azure AI Search</div>
+          <div class="tech-card-role">Optional Semantic Layer</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🛡️</div>
+          <div class="tech-card-name">Azure APIM / API GW</div>
+          <div class="tech-card-role">API Gateway &amp; Auth</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🔐</div>
+          <div class="tech-card-name">OAuth 2.0 / MFA</div>
+          <div class="tech-card-role">Identity &amp; Auth</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">💻</div>
+          <div class="tech-card-name">Visual Studio Code</div>
+          <div class="tech-card-role">Development IDE</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-card-icon">🐙</div>
+          <div class="tech-card-name">GitHub</div>
+          <div class="tech-card-role">Source Control &amp; CI/CD</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─────────── 3.4 Pipeline / Workflow ─────────── -->
+    <section id="chatbot-pipeline" class="section section--alt">
+      <div class="section-header">
+        <div class="section-label">Tool 1 &nbsp;·&nbsp; Page Index Chatbot</div>
+        <h2 class="section-title">Pipeline &amp; Workflow</h2>
+        <p class="section-desc">
+          The following diagrams, extracted from the architecture decks, illustrate the
+          end-to-end processing pipeline for both the Page Index Chatbot and the
+          full AI Risk Assessment system.
+        </p>
+      </div>
+
+      <!-- Workflow diagram images from PPT slides -->
+      <div class="slide-gallery">
+
+        <div class="slide-item">
+          <div class="slide-frame">
+            <img
+              src="assets/images/workflow_slide_1.png"
+              alt="User Flow and Developer Flow — PageIndex Chatbot and AI Assessment Tool"
+              loading="lazy"
+            />
+          </div>
+          <div class="slide-caption">
+            <span class="slide-caption-title">Solution Workflow</span>
+            <span class="slide-caption-desc">User Flow (PageIndex Chatbot) &amp; Developer Flow (AI Assessment Tool) — Shared Azure Cosmos DB Storage</span>
+          </div>
+        </div>
+
+        <div class="slide-item">
+          <div class="slide-frame">
+            <img
+              src="assets/images/arch_slide_1.png"
+              alt="End-to-End Risk Assessment Request Flow"
+              loading="lazy"
+            />
+          </div>
+          <div class="slide-caption">
+            <span class="slide-caption-title">Chatbot Processing Pipeline</span>
+            <span class="slide-caption-desc">End-to-End Workflow — Risk Assessment Request Flow including Ingestion, LLM &amp; Retrieval, Deterministic Engine, and Output &amp; Governance layers</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Text explanation of pipeline -->
+      <div class="pipeline-explanation">
+        <h3>How the pipeline works</h3>
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="ps-number">1</div>
+            <div class="ps-content">
+              <strong>User submits a query</strong> via the Chat Interface (web or app UI).
+              The query is forwarded to the Page Index Retriever for orchestration.
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="ps-number">2</div>
+            <div class="ps-content">
+              <strong>Page Index Lookup</strong> — The retriever queries the DynamoDB Page Index
+              Table to find the most relevant pages and sections matching the query intent.
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="ps-number">3</div>
+            <div class="ps-content">
+              <strong>Evidence retrieved</strong> — Matching page content and section context
+              are returned and assembled into a structured prompt payload.
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="ps-number">4</div>
+            <div class="ps-content">
+              <strong>LLM call (Claude Haiku / Bedrock)</strong> — The page context is injected
+              as evidence into the LLM prompt. The model generates a grounded answer.
+              The LLM is Q&amp;A only — it performs no scoring or risk decisions.
+            </div>
+          </div>
+          <div class="pipeline-step">
+            <div class="ps-number">5</div>
+            <div class="ps-content">
+              <strong>Response returned</strong> — The grounded reply, including page citation
+              and source document reference, is returned to the user interface.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── 3.5 Metrics ─────────── -->
+    <section id="chatbot-metrics" class="section">
+      <div class="section-header">
+        <div class="section-label">Tool 1 &nbsp;·&nbsp; Page Index Chatbot</div>
+        <h2 class="section-title">Performance Metrics</h2>
+        <p class="section-desc">
+          The following metrics reflect the chatbot's expected performance targets and
+          key evaluation dimensions. Values marked as demo are indicative targets,
+          to be updated with live evaluation data.
+        </p>
+      </div>
+
+      <div class="metrics-grid">
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon metric-icon--green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="metric-badge metric-badge--demo">Target</span>
+          </div>
+          <div class="metric-value">≥ 90%</div>
+          <div class="metric-name">Retrieval Accuracy</div>
+          <div class="metric-desc">Percentage of queries returning the correct page or section as the top-ranked result.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon metric-icon--blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <span class="metric-badge metric-badge--demo">Target</span>
+          </div>
+          <div class="metric-value">≥ 85%</div>
+          <div class="metric-name">Response Relevance</div>
+          <div class="metric-desc">Human-evaluated relevance score — does the LLM response directly address the user query using retrieved context?</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon metric-icon--purple">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            </div>
+            <span class="metric-badge metric-badge--demo">Target</span>
+          </div>
+          <div class="metric-value">≥ 95%</div>
+          <div class="metric-name">Page Citation Accuracy</div>
+          <div class="metric-desc">Proportion of responses that include a correct and verifiable page or section citation from the source document.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon metric-icon--amber">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="metric-badge metric-badge--demo">Target</span>
+          </div>
+          <div class="metric-value">&lt; 3s</div>
+          <div class="metric-name">End-to-End Latency</div>
+          <div class="metric-desc">Average time from user query submission to full response display, including retrieval and LLM generation.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon metric-icon--green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="metric-badge metric-badge--demo">Target</span>
+          </div>
+          <div class="metric-value">100%</div>
+          <div class="metric-name">Document Coverage</div>
+          <div class="metric-desc">Percentage of the source document corpus that is indexed and retrievable — full appendix and guide coverage.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-header">
+            <div class="metric-icon metric-icon--blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="metric-badge metric-badge--demo">Target</span>
+          </div>
+          <div class="metric-value">≥ 80%</div>
+          <div class="metric-name">User Trust Score</div>
+          <div class="metric-desc">User satisfaction rating from post-session feedback — "Was the response accurate and trustworthy?"</div>
+        </div>
+
+      </div>
+
+      <div class="metrics-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        All values above are indicative targets. Replace with live evaluation data once the chatbot is deployed and assessed against real queries.
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 4 — BIAS DETECTION TOOL
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="bias-tool" class="section section--alt">
+      <div class="section-header">
+        <div class="section-label">Tool 2 &nbsp;·&nbsp; Bias Detection</div>
+        <h2 class="section-title">Bias Detection &amp; Assessment Tool</h2>
+        <p class="section-desc">
+          A structured, LLM-assisted tool for identifying, scoring, and reporting
+          potential bias in AI systems — supporting governance, compliance, and assurance teams.
+        </p>
+      </div>
+
+      <!-- Purpose -->
+      <div class="bias-intro">
+        <div class="bias-intro-text">
+          <h3>Purpose</h3>
+          <p>
+            The Bias Detection Tool provides developers and governance teams with a systematic
+            method for assessing potential bias in an AI solution before deployment. Rather
+            than relying on ad-hoc review, it follows a structured Q&amp;A process, cross-references
+            answers against pre-defined reference answers, and applies a deterministic scoring
+            engine to classify bias risk.
+          </p>
+          <p>
+            This tool complements the Page Index Chatbot: where the chatbot helps teams
+            understand <em>what the framework requires</em>, the Bias Detection Tool helps
+            them demonstrate <em>how their AI system meets or fails those requirements</em>.
+          </p>
+        </div>
+        <div class="bias-intro-highlights">
+          <div class="bias-highlight">
+            <div class="bh-icon">⚖️</div>
+            <div>
+              <strong>Deterministic Scoring</strong>
+              <span>Rules-based assessment — no subjective LLM scoring of risk tiers</span>
+            </div>
+          </div>
+          <div class="bias-highlight">
+            <div class="bh-icon">📋</div>
+            <div>
+              <strong>Reference Answer Cross-Check</strong>
+              <span>Developer answers compared against ground-truth reference responses</span>
+            </div>
+          </div>
+          <div class="bias-highlight">
+            <div class="bh-icon">🛡️</div>
+            <div>
+              <strong>Auditable Output</strong>
+              <span>Every assessment is logged with question, answer, and score — full audit trail</span>
+            </div>
+          </div>
+          <div class="bias-highlight">
+            <div class="bh-icon">📊</div>
+            <div>
+              <strong>Tiered Risk Report</strong>
+              <span>Output classifies bias risk as Low, Medium, or High with justification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow -->
+      <div class="subsection-title">Assessment Workflow</div>
+      <div class="bias-workflow">
+        <div class="bw-step">
+          <div class="bw-step-icon">🖥️</div>
+          <div class="bw-step-label">Step 1</div>
+          <div class="bw-step-title">Start Session</div>
+          <div class="bw-step-desc">Developer opens the Assessment UI and begins a new bias assessment session. Session ID is generated and logged.</div>
+        </div>
+        <div class="bw-arrow">→</div>
+        <div class="bw-step">
+          <div class="bw-step-icon">🗄️</div>
+          <div class="bw-step-label">Step 2</div>
+          <div class="bw-step-title">Load Q&amp;A</div>
+          <div class="bw-step-desc">Questions are loaded from the Page Index Table. Reference answers are fetched from the Reference Answer Table.</div>
+        </div>
+        <div class="bw-arrow">→</div>
+        <div class="bw-step">
+          <div class="bw-step-icon">🤖</div>
+          <div class="bw-step-label">Step 3</div>
+          <div class="bw-step-title">Ask &amp; Capture</div>
+          <div class="bw-step-desc">AWS Bedrock presents each question to the developer. Answers are captured and stored against the session record.</div>
+        </div>
+        <div class="bw-arrow">→</div>
+        <div class="bw-step">
+          <div class="bw-step-icon">⚖️</div>
+          <div class="bw-step-label">Step 4</div>
+          <div class="bw-step-title">LLM Analysis</div>
+          <div class="bw-step-desc">Developer answers are cross-checked against reference answers using LLM analysis. Discrepancies are flagged and scored.</div>
+        </div>
+        <div class="bw-arrow">→</div>
+        <div class="bw-step">
+          <div class="bw-step-icon">📊</div>
+          <div class="bw-step-label">Step 5</div>
+          <div class="bw-step-title">Scoring</div>
+          <div class="bw-step-desc">The Scoring Engine applies threshold rules per question. Each answer receives a score based on alignment with the reference.</div>
+        </div>
+        <div class="bw-arrow">→</div>
+        <div class="bw-step">
+          <div class="bw-step-icon">🛡️</div>
+          <div class="bw-step-label">Step 6</div>
+          <div class="bw-step-title">Risk Report</div>
+          <div class="bw-step-desc">A tiered risk report is generated — Low, Medium, or High — with justification, flagged questions, and mitigation recommendations.</div>
+        </div>
+      </div>
+
+      <!-- Expected Outputs -->
+      <div class="subsection-title">Expected Outputs</div>
+      <div class="content-grid content-grid--3col">
+        <div class="output-card output-card--green">
+          <div class="oc-label">Low Risk</div>
+          <div class="oc-icon">✅</div>
+          <p>AI solution demonstrates strong alignment with reference answers across all bias dimensions. Standard documentation required. Safe to proceed to deployment review.</p>
+        </div>
+        <div class="output-card output-card--amber">
+          <div class="oc-label">Medium Risk</div>
+          <div class="oc-icon">⚠️</div>
+          <p>One or more bias dimensions show partial alignment. Mitigation actions required, documented, and reviewed before deployment. Conditions applied.</p>
+        </div>
+        <div class="output-card output-card--red">
+          <div class="oc-label">High Risk</div>
+          <div class="oc-icon">❌</div>
+          <p>Critical bias dimensions fail the reference check. Deployment blocked until root causes are addressed, mitigations implemented, and re-assessment passed.</p>
+        </div>
+      </div>
+
+      <!-- Value to governance teams -->
+      <div class="governance-value">
+        <h3>Value to Governance, Compliance &amp; Assurance Teams</h3>
+        <div class="gv-grid">
+          <div class="gv-item">
+            <strong>Governance:</strong> Provides structured, repeatable evidence of bias assessment — aligned with the AI Risk Assessment framework and Orange Book requirements.
+          </div>
+          <div class="gv-item">
+            <strong>Compliance:</strong> Generates an immutable, timestamped assessment record with question-level detail — supporting audit readiness and regulatory review.
+          </div>
+          <div class="gv-item">
+            <strong>Assurance:</strong> Enables independent assurance reviewers to inspect the assessment record, scores, and risk tier — without relying on developer self-attestation alone.
+          </div>
+          <div class="gv-item">
+            <strong>Development Teams:</strong> Gives AI developers clear, structured feedback on where their solution falls short of bias requirements — with actionable mitigation guidance.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 5 — ARCHITECTURE & DEPLOYMENT
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="architecture" class="section">
+      <div class="section-header">
+        <div class="section-label">Architecture &amp; Deployment</div>
+        <h2 class="section-title">System Architecture Decks</h2>
+        <p class="section-desc">
+          The following diagrams are extracted directly from the architecture PowerPoint
+          decks. Download the originals for full resolution and editing capability.
+        </p>
+      </div>
+
+      <div class="arch-gallery">
+
+        <!-- Slide 1: End-to-End Workflow -->
+        <div class="arch-item">
+          <div class="arch-label-bar">
+            <span class="arch-deck-tag">Architecture Deck &nbsp;·&nbsp; Slide 1</span>
+          </div>
+          <div class="arch-frame">
+            <img
+              src="assets/images/arch_slide_1.png"
+              alt="End-to-End Workflow — Risk Assessment Request Flow"
+              loading="lazy"
+            />
+            <div class="arch-zoom-btn" onclick="openLightbox('assets/images/arch_slide_1.png', 'End-to-End Workflow — Risk Assessment Request Flow')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </div>
+          </div>
+          <div class="arch-caption">
+            <strong>End-to-End Workflow — Risk Assessment Request Flow</strong>
+            <p>Illustrates the full processing pipeline across Ingestion &amp; Auth, LLM &amp; Retrieval, the Deterministic Boundary, Rules Engine, Output &amp; Governance, and Monitoring &amp; Audit layers. The DETERMINISTIC BOUNDARY enforces strict separation: all scoring, risk tier assignment, and compliance decisions are handled exclusively by deterministic Python code.</p>
+          </div>
+        </div>
+
+        <!-- Slide 2: Full System Architecture -->
+        <div class="arch-item">
+          <div class="arch-label-bar">
+            <span class="arch-deck-tag">Architecture Deck &nbsp;·&nbsp; Slide 2</span>
+          </div>
+          <div class="arch-frame">
+            <img
+              src="assets/images/arch_slide_2.png"
+              alt="AI Risk Assessment Assistant — Full System Architecture"
+              loading="lazy"
+            />
+            <div class="arch-zoom-btn" onclick="openLightbox('assets/images/arch_slide_2.png', 'AI Risk Assessment Assistant — Full System Architecture')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </div>
+          </div>
+          <div class="arch-caption">
+            <strong>AI Risk Assessment Assistant — Full System Architecture</strong>
+            <p>Shows the complete component map across Data Sources, RAG Layer, Conversation Interface, Rules-Based Logic, and Output &amp; Decisions. Includes the 7-step assessment workflow from Project Intake through to Post-Treatment Projection, the 5×5 scoring grid, non-linear escalation rules, and evidence &amp; audit logging. UK Gov Orange Book aligned, NIST AI RMF referenced, v2.0.</p>
+          </div>
+        </div>
+
+        <!-- Slide 3: Workflow Architecture -->
+        <div class="arch-item">
+          <div class="arch-label-bar">
+            <span class="arch-deck-tag">Deployment Model Deck &nbsp;·&nbsp; Slide 1</span>
+          </div>
+          <div class="arch-frame">
+            <img
+              src="assets/images/workflow_slide_1.png"
+              alt="Deployment Model — User Flow and Developer Flow"
+              loading="lazy"
+            />
+            <div class="arch-zoom-btn" onclick="openLightbox('assets/images/workflow_slide_1.png', 'Deployment Model — User Flow and Developer Flow')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </div>
+          </div>
+          <div class="arch-caption">
+            <strong>Deployment Model — User Flow &amp; Developer Flow</strong>
+            <p>Presents the parallel deployment flows: the User Flow (PageIndex Chatbot — query through Chat Interface → Page Index Retriever → DynamoDB → Claude Haiku → Grounded Reply) and the Developer Flow (AI Assessment Tool — Dev Interface → DynamoDB → Bedrock → LLM Analyser → Scoring Engine → Risk Report), both sharing Azure Cosmos DB as the central data store.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Download buttons for the PPT files -->
+      <div class="arch-downloads">
+        <h3>Download Source Decks</h3>
+        <div class="arch-download-row">
+          <a href="assets/ppt/AI_RiskAssessment_Architecture.pptx" class="download-btn" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <div>
+              <strong>Full System Architecture</strong>
+              <span>AI_RiskAssessment_Architecture.pptx</span>
+            </div>
+          </a>
+          <a href="assets/ppt/page_index_Workflow_architecture.pptx" class="download-btn" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <div>
+              <strong>Deployment Model</strong>
+              <span>page_index_Workflow_architecture.pptx</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 6 — PLATFORM STACK
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="stack" class="section section--alt">
+      <div class="section-header">
+        <div class="section-label">Platform Stack</div>
+        <h2 class="section-title">Tools &amp; Platform Summary</h2>
+        <p class="section-desc">
+          The complete technology stack used across the AI Risk Assessment platform,
+          organised by capability layer.
+        </p>
+      </div>
+
+      <div class="stack-grid">
+
+        <div class="stack-category">
+          <div class="stack-cat-header">
+            <span class="stack-cat-icon">🧰</span>
+            <h4>Development Tools</h4>
+          </div>
+          <ul class="stack-items">
+            <li>Python 3.x — backend orchestration and scoring engine</li>
+            <li>Visual Studio Code — primary IDE</li>
+            <li>GitHub — version control and CI/CD pipelines</li>
+            <li>HTML / CSS / JavaScript — frontend interfaces</li>
+          </ul>
+        </div>
+
+        <div class="stack-category">
+          <div class="stack-cat-header">
+            <span class="stack-cat-icon">🤖</span>
+            <h4>AI / LLM Tools</h4>
+          </div>
+          <ul class="stack-items">
+            <li>AWS Bedrock — managed LLM service host</li>
+            <li>Claude Haiku — conversational Q&amp;A model</li>
+            <li>Azure OpenAI — alternative LLM service (configurable)</li>
+            <li>LLM Analyser — answer cross-check and bias analysis</li>
+          </ul>
+        </div>
+
+        <div class="stack-category">
+          <div class="stack-cat-header">
+            <span class="stack-cat-icon">☁️</span>
+            <h4>Hosting &amp; Deployment</h4>
+          </div>
+          <ul class="stack-items">
+            <li>Azure / AWS cloud infrastructure</li>
+            <li>Azure APIM / AWS API Gateway — API management and auth</li>
+            <li>GitHub Pages — static site hosting (this site)</li>
+            <li>OAuth 2.0 + MFA — identity and access management</li>
+          </ul>
+        </div>
+
+        <div class="stack-category">
+          <div class="stack-cat-header">
+            <span class="stack-cat-icon">🗄️</span>
+            <h4>Document &amp; Indexing</h4>
+          </div>
+          <ul class="stack-items">
+            <li>DynamoDB — page index store and session logs</li>
+            <li>Azure Cosmos DB — shared NoSQL storage</li>
+            <li>Azure AI Search — optional semantic retrieval layer</li>
+            <li>Blob Storage / S3 — source document archive</li>
+          </ul>
+        </div>
+
+        <div class="stack-category">
+          <div class="stack-cat-header">
+            <span class="stack-cat-icon">🌐</span>
+            <h4>Frontend Technologies</h4>
+          </div>
+          <ul class="stack-items">
+            <li>React / Angular — production chat and assessment UI</li>
+            <li>HTML5 / CSS3 / JavaScript — static web interface</li>
+            <li>GitHub Pages — public-facing documentation site</li>
+            <li>Responsive design — desktop and mobile support</li>
+          </ul>
+        </div>
+
+        <div class="stack-category">
+          <div class="stack-cat-header">
+            <span class="stack-cat-icon">⚖️</span>
+            <h4>Governance &amp; Assessment</h4>
+          </div>
+          <ul class="stack-items">
+            <li>UK Gov Orange Book framework — risk matrix alignment</li>
+            <li>NIST AI RMF — risk management framework reference</li>
+            <li>Deterministic Rules Engine — scoring and escalation</li>
+            <li>Audit Logging — GDPR-compliant, immutable records</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 7 — DOWNLOADS
+    ══════════════════════════════════════════════════════════════ -->
+    <section id="downloads" class="section">
+      <div class="section-header">
+        <div class="section-label">Downloads</div>
+        <h2 class="section-title">Project Assets</h2>
+        <p class="section-desc">
+          Download the original architecture decks and extracted slide previews
+          for use in presentations, reviews, and governance documentation.
+        </p>
+      </div>
+
+      <div class="downloads-grid">
+
+        <!-- PPT Downloads -->
+        <div class="download-card">
+          <div class="download-card-icon">📐</div>
+          <div class="download-card-content">
+            <h4>Full System Architecture</h4>
+            <p>End-to-End Workflow and Full System Architecture — 2 slides, production grade, UK Gov Orange Book aligned, v2.0</p>
+            <div class="download-meta">
+              <span>PPTX &nbsp;·&nbsp; 33 KB</span>
+            </div>
+          </div>
+          <a href="assets/ppt/AI_RiskAssessment_Architecture.pptx" class="download-pill" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="download-card">
+          <div class="download-card-icon">🔄</div>
+          <div class="download-card-content">
+            <h4>Deployment Model &amp; Workflow</h4>
+            <p>User Flow (PageIndex Chatbot) and Developer Flow (AI Assessment Tool) — shared storage architecture, AWS / Azure deployment model</p>
+            <div class="download-meta">
+              <span>PPTX &nbsp;·&nbsp; 21 KB</span>
+            </div>
+          </div>
+          <a href="assets/ppt/page_index_Workflow_architecture.pptx" class="download-pill" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <!-- Image Downloads -->
+        <div class="download-card">
+          <div class="download-card-icon">🖼️</div>
+          <div class="download-card-content">
+            <h4>Slide Preview — Arch Slide 1</h4>
+            <p>End-to-End Workflow — Risk Assessment Request Flow. High-resolution PNG exported from the architecture deck.</p>
+            <div class="download-meta">
+              <span>PNG &nbsp;·&nbsp; 1920×1080</span>
+            </div>
+          </div>
+          <a href="assets/images/arch_slide_1.png" class="download-pill" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="download-card">
+          <div class="download-card-icon">🖼️</div>
+          <div class="download-card-content">
+            <h4>Slide Preview — Arch Slide 2</h4>
+            <p>Full System Architecture — AI Risk Assessment Assistant. Complete component map, v2.0.</p>
+            <div class="download-meta">
+              <span>PNG &nbsp;·&nbsp; 1920×1080</span>
+            </div>
+          </div>
+          <a href="assets/images/arch_slide_2.png" class="download-pill" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <div class="download-card">
+          <div class="download-card-icon">🖼️</div>
+          <div class="download-card-content">
+            <h4>Slide Preview — Workflow Slide 1</h4>
+            <p>Deployment Model — User Flow and Developer Flow. Shared Cosmos DB architecture.</p>
+            <div class="download-meta">
+              <span>PNG &nbsp;·&nbsp; 1920×1468</span>
+            </div>
+          </div>
+          <a href="assets/images/workflow_slide_1.png" class="download-pill" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
+          </a>
+        </div>
+
+        <!-- Placeholder -->
+        <div class="download-card download-card--placeholder">
+          <div class="download-card-icon">📄</div>
+          <div class="download-card-content">
+            <h4>Project Write-Up</h4>
+            <p>Full technical write-up — solution design, component rationale, assessment methodology, and governance alignment details.</p>
+            <div class="download-meta">
+              <span>PDF &nbsp;·&nbsp; Coming soon</span>
+            </div>
+          </div>
+          <span class="download-pill download-pill--disabled">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Pending
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="footer-name">AI Risk Assessment Platform</div>
+            <div class="footer-tagline">Enterprise AI Governance &amp; Risk Management</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#tools-overview" class="footer-link">Tools</a>
+          <a href="#architecture" class="footer-link">Architecture</a>
+          <a href="#downloads" class="footer-link">Downloads</a>
+          <a href="https://github.com" class="footer-link footer-link--github" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="footer-badges">
+          <span class="footer-badge">UK Gov Orange Book</span>
+          <span class="footer-badge">NIST AI RMF</span>
+          <span class="footer-badge">Production Grade</span>
+          <span class="footer-badge">v2.0</span>
+        </div>
+
+        <div class="footer-copy">
+          &copy; 2025 AI Risk Assessment Platform &nbsp;·&nbsp; Built for enterprise AI governance
+        </div>
+      </div>
+    </footer>
+
+  </main><!-- /main-content -->
+
+  <!-- ─────────────────────────────────────────────────────────────
+       LIGHTBOX (for enlarged slide view)
+  ───────────────────────────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
