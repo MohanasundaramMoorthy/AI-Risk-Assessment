@@ -439,8 +439,8 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <div class="cb-content">
-            <h4>Chat UI Layer</h4>
-            <p>React / Angular web interface. Displays conversation history, page citations, and source references. Accessible and responsive for desktop and mobile use.</p>
+            <h4>Streamlit App Layer</h4>
+            <p>Streamlit-based application interface. Renders the conversational UI, displays page citations, source references, and session history. Deployed as a Streamlit app — accessible via browser, no additional frontend framework required.</p>
           </div>
         </div>
 
@@ -495,9 +495,9 @@
         </div>
 
         <div class="tech-card">
-          <div class="tech-card-icon">🌐</div>
-          <div class="tech-card-name">HTML / CSS / JS</div>
-          <div class="tech-card-role">Frontend Interface</div>
+          <div class="tech-card-icon">🎈</div>
+          <div class="tech-card-name">Streamlit</div>
+          <div class="tech-card-role">Streamlit App / User Interface</div>
         </div>
 
         <div class="tech-card">
@@ -597,7 +597,7 @@
           <div class="pipeline-step">
             <div class="ps-number">1</div>
             <div class="ps-content">
-              <strong>User submits a query</strong> via the Chat Interface (web or app UI).
+              <strong>User submits a query</strong> via the Streamlit app.
               The query is forwarded to the Page Index Retriever for orchestration.
             </div>
           </div>
@@ -797,7 +797,7 @@
           <div class="bw-step-icon">🖥️</div>
           <div class="bw-step-label">Step 1</div>
           <div class="bw-step-title">Start Session</div>
-          <div class="bw-step-desc">Developer opens the Assessment UI and begins a new bias assessment session. Session ID is generated and logged.</div>
+          <div class="bw-step-desc">Developer opens the Streamlit app and begins a new bias assessment session. Session ID is generated and logged.</div>
         </div>
         <div class="bw-arrow">→</div>
         <div class="bw-step">
@@ -950,7 +950,7 @@
           </div>
           <div class="arch-caption">
             <strong>Deployment Model — User Flow &amp; Developer Flow</strong>
-            <p>Presents the parallel deployment flows: the User Flow (PageIndex Chatbot — query through Chat Interface → Page Index Retriever → DynamoDB → Claude Haiku → Grounded Reply) and the Developer Flow (AI Assessment Tool — Dev Interface → DynamoDB → Bedrock → LLM Analyser → Scoring Engine → Risk Report), both sharing Amazon DynamoDB as the central data store.</p>
+            <p>Presents the parallel deployment flows: the User Flow (PageIndex Chatbot — query through Streamlit App → Page Index Retriever → DynamoDB → Claude Haiku via Bedrock → Grounded Reply) and the Developer Flow (AI Assessment Tool — Streamlit App → DynamoDB → Bedrock → LLM Analyser → Scoring Engine → Risk Report), both backed by Amazon DynamoDB as the central data store.</p>
           </div>
         </div>
 
@@ -1000,9 +1000,9 @@
           </div>
           <ul class="stack-items">
             <li>Python 3.x — backend orchestration and scoring engine</li>
+            <li>Streamlit — application UI framework for both tools</li>
             <li>Visual Studio Code — primary IDE</li>
             <li>GitHub — version control and CI/CD pipelines</li>
-            <li>HTML / CSS / JavaScript — frontend interfaces</li>
           </ul>
         </div>
 
@@ -1012,10 +1012,10 @@
             <h4>AI / LLM Tools</h4>
           </div>
           <ul class="stack-items">
-            <li>AWS Bedrock — managed LLM service host</li>
-            <li>Claude Haiku — conversational Q&amp;A model</li>
-            <li>Amazon Bedrock — managed LLM service (multi-model)</li>
+            <li>AWS Bedrock — managed LLM service host (multi-model)</li>
+            <li>Claude Haiku — conversational Q&amp;A model via Bedrock</li>
             <li>LLM Analyser — answer cross-check and bias analysis</li>
+            <li>Amazon Bedrock Guardrails — responsible AI controls</li>
           </ul>
         </div>
 
@@ -1051,10 +1051,10 @@
             <h4>Frontend Technologies</h4>
           </div>
           <ul class="stack-items">
-            <li>React / Angular — production chat and assessment UI</li>
-            <li>HTML5 / CSS3 / JavaScript — static web interface</li>
-            <li>GitHub Pages — public-facing documentation site</li>
-            <li>Responsive design — desktop and mobile support</li>
+            <li>Streamlit — Page Index Chatbot and Bias Detection Tool UI</li>
+            <li>Streamlit Cloud / AWS — Streamlit app hosting</li>
+            <li>HTML5 / CSS3 / JavaScript — this showcase website only</li>
+            <li>GitHub Pages — public-facing documentation portal (this site)</li>
           </ul>
         </div>
 
@@ -1155,7 +1155,7 @@
           <div class="download-card-icon">🖼️</div>
           <div class="download-card-content">
             <h4>Slide Preview — Workflow Slide 1</h4>
-            <p>Deployment Model — User Flow and Developer Flow. Shared Cosmos DB architecture.</p>
+            <p>Deployment Model — User Flow and Developer Flow. Shared Amazon DynamoDB data store.</p>
             <div class="download-meta">
               <span>PNG &nbsp;·&nbsp; 1920×1468</span>
             </div>

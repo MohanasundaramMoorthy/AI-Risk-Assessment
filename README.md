@@ -4,6 +4,11 @@ A professional enterprise showcase website for the AI Risk Assessment platform, 
 GitHub Pages static site. Features the Page Index Chatbot and Bias Detection Tool, with
 embedded architecture diagrams extracted from the project PowerPoint decks.
 
+> **Note on technology stack:** This repository hosts the *documentation/showcase website* only
+> (static HTML/CSS/JS for GitHub Pages). The actual tools — Page Index Chatbot and Bias
+> Detection Tool — are **Streamlit applications** backed by an **AWS-first architecture**
+> (AWS Bedrock, Amazon DynamoDB, Amazon S3, AWS API Gateway, Amazon OpenSearch Service).
+
 ---
 
 ## Project Structure
